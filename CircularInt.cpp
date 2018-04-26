@@ -114,3 +114,11 @@ bool operator==(int a ,CircularInt& b){
 	return b==a;
 }
 
+bool operator!=(CircularInt&a , CircularInt& b){
+	if(a.current!=b.current)
+			return true;
+		else
+			return false;
+
+}
+
