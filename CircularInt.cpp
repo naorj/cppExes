@@ -13,8 +13,8 @@ ostream& operator <<(ostream& os, const CircularInt& m) {	// cout overloading
 	return os << m.current;
 }
 
-istream& operator <<(istream& os, const int m) {	// cout overloading
-	return os << m;
+istream& operator >>(istream& os, const int m) {	// cout overloading
+	return os >> m;
 }
 
 CircularInt& operator+=(CircularInt& t, int a) {		//+= overloading

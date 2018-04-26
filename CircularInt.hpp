@@ -10,7 +10,7 @@ class CircularInt {
 public:
 	CircularInt(int a, int b);
 	friend ostream& operator <<(ostream& os, const CircularInt& m);
-	friend istream& operator <<(istream& os, const int m);
+	friend istream& operator >>(istream& os, const int m);
 	friend CircularInt& operator+=(CircularInt& t, int a);
 	friend CircularInt& operator++(CircularInt& t, int);
 	friend int operator-(CircularInt &t);
