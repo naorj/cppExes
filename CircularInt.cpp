@@ -51,7 +51,7 @@ CircularInt& operator-=(CircularInt& a, CircularInt& b) {		//-= overloading
 	int temp=b.current;
 	a-=temp;
 	return a;
-}
+}	// fix
 
 CircularInt& operator++(CircularInt& t, int) {		//+1 overloading (++) postfix
 	if ((t.current + 1) > t.high) {
@@ -59,15 +59,19 @@ CircularInt& operator++(CircularInt& t, int) {		//+1 overloading (++) postfix
 		return t;
 	} else
 		return (t += 1);
-}
+}	//fix
 
 CircularInt& operator--(CircularInt& t, int) {		//+1 overloading (--) postfix
-	if ((t.current - 1) < t.low) {
-		t.current = (t.current - 1) + t.high;
+	if ((t.current - 1) < t.low || (t.current-1)>t.high) {
+		t.current = (t.current - 1);// + t.high;
+		while(t.current<t.low)
+			t.current+=t.high;
+		if(t.current>t.high)
+			t.current=t.current%t.high;
 		return t;
 	} else
 		return (t -= 1);
-}
+}	// fix
 
 int operator+(CircularInt&a, CircularInt&b) {	//	cout of + overloading
 	return (a.current + b.current) % a.high;
