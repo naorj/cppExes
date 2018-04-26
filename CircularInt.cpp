@@ -84,7 +84,7 @@ string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
 				+ str3 + "=" + str2;
 }
 
-CircularInt& operator+(CircularInt& a, int b) {
+CircularInt& operator+(CircularInt& a, int b) { //+operator between cirInt and integer
 	if (a.current + b > 12)
 		a.current = (a.current + b) % a.high;
 	else
@@ -92,29 +92,28 @@ CircularInt& operator+(CircularInt& a, int b) {
 	return a;
 }
 
-CircularInt& operator/(int a, CircularInt& b) {
+CircularInt& operator/(int a, CircularInt& b) { //operator /  between and integer and cirInt
 	b.current = a / b.current;
 	return b;
 }
 
-CircularInt& operator/=(CircularInt&a, int b) {
+CircularInt& operator/=(CircularInt&a, int b) {	//operator /  between cirInt and integer
 	a.current = a.current / b;
 	return a;
 }
 
-bool operator==(CircularInt&a, int b) {
+bool operator==(CircularInt&a, int b) { // operator == between cirInt and integer
 	if (a.current == b)
 		return true;
 	else
 		return false;
-
 }
 
-bool operator==(int a, CircularInt& b) {
+bool operator==(int a, CircularInt& b) {	// operator == between integer and cirInt
 	return b == a;
 }
 
-bool operator!=(CircularInt&a, CircularInt& b) {
+bool operator!=(CircularInt&a, CircularInt& b) {	//	!= overloading
 	if (a.current != b.current)
 		return true;
 	else
@@ -122,14 +121,55 @@ bool operator!=(CircularInt&a, CircularInt& b) {
 
 }
 
-bool operator!=(CircularInt& a, int b) {
+bool operator!=(CircularInt& a, int b) { //	!= overloading between cirInt and integer
 	if (a.current != b)
 		return true;
 	else
 		return false;
 }
 
-bool operator!=(int a, CircularInt& b) {
+bool operator!=(int a, CircularInt& b) {	//	!= overloading between cirInt and integer
 	return b != a;
 }
 
+bool operator>(CircularInt&a, CircularInt &b) {	//	> overloading between cirInt and cirInt
+	if (a.current > b.current)
+		return true;
+	else
+		return false;
+}
+
+bool operator>(CircularInt&a, int b) {	//	> overloading between cirInt and Integer
+	if (a.current > b)
+		return true;
+	else
+		return false;
+}
+
+bool operator>(int a, CircularInt&b) {	//	> overloading between Integer and cirInt
+	if (a > b.current)
+		return true;
+	else
+		return false;
+}
+
+bool operator<(CircularInt&a, CircularInt &b) {	//	< overloading between cirInt and cirInt
+	if (a.current < b.current)
+		return true;
+	else
+		return false;
+}
+
+bool operator<(CircularInt&a, int b) {	// < overloading between cirInt and Integer
+	if (a.current < b)
+		return true;
+	else
+		return false;
+}
+
+bool operator<(int a, CircularInt&b) {	//	< overloading between Integer and cirInt
+	if (a < b.current)
+		return true;
+	else
+		return false;
+}
