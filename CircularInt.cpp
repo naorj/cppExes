@@ -108,7 +108,7 @@ CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading
 
 CircularInt& operator*=(CircularInt &a, CircularInt&b) {		//	*= overloading
 	int temp=b.current;
-	a.current*=temp;
+	a*=temp;
 	return a;
 }
 
@@ -118,13 +118,13 @@ return a;
 }
 
 CircularInt& operator*(CircularInt&a, int b){
-	a.current*=b;
+	a*=b;
 	//a.current=a.current%a.high;
 	return a;
 }
 
 CircularInt& operator*(int a, CircularInt& b){
-	b.current*=a;
+	b*=a;
 	//b.current=b.current%b.high;
 	return b;
 }
