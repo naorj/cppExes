@@ -114,7 +114,7 @@ CircularInt& operator*=(CircularInt &a, CircularInt&b) {		//	*= overloading
 }
 
 CircularInt& operator*(CircularInt&a, CircularInt&b){
-a.current=(a.current*b.current) %a.high;
+a.current=(a.current*b.current) %a.range;
 return a;
 }
 
