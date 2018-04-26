@@ -1,4 +1,3 @@
-//Project shoval and naor
 #include <iostream>
 using namespace std;
 #include "CircularInt.hpp"
@@ -21,15 +20,4 @@ int main() {
 	} catch (const string& message) {
 		cout << message << endl;     // "There is no number x in {1,12} such that x*3=10"
 	}
-
-	/*cout << endl;			// operator '==' check
-	cout<<hour<<endl;
-	hour=hour-8;
-	cout<<hour<<endl;
-	CircularInt hour2 (1,12);
-	cout << hour2<< endl;
-	if(hour==hour2)
-		cout<<"hey";
-	else
-		cout<<"g";*/
 }
