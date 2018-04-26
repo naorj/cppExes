@@ -27,16 +27,10 @@ CircularInt& operator+=(CircularInt& t, int a) {		//+= overloading
 }			//fix
 
 CircularInt& operator+=(CircularInt& a, CircularInt& b) {
-	//int temp=b.current;
-	//a+=temp;
-	if ((a.current + b.current) > a.high) {
-		a.current = (a.current + b.current) % a.high;
-	} else {
-		a.current = a.current + b.current;
-	}
-	//return t;
+	int temp=b.current;
+	a+=temp;
 	return a;
-}
+}	//fix
 
 CircularInt& operator-=(CircularInt& t, int a) {		//-= overloading
 	if ((t.current - a) < t.low) {
@@ -45,14 +39,17 @@ CircularInt& operator-=(CircularInt& t, int a) {		//-= overloading
 		t.current = t.current - a;
 	}
 	return t;
-}
+}	//fix
 
 CircularInt& operator-=(CircularInt& a, CircularInt& b) {		//-= overloading
-	if ((a.current - b.current) < a.low) {
+	/*if ((a.current - b.current) < a.low) {
 		a.current = (a.current - b.current) + a.high;
 	} else {
 		a.current = a.current - b.current;
 	}
+	return a;*/
+	int temp=b.current;
+	a-=temp;
 	return a;
 }
 
