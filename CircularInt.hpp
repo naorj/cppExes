@@ -26,6 +26,7 @@ public:
 	friend CircularInt& operator/(int a, CircularInt& b);
 	friend CircularInt& operator/=(CircularInt&a , int b);
 	friend CircularInt& operator/=(int b, CircularInt&a);
+	friend CircularInt& operator/=(CircularInt&a, CircularInt&b);
 	friend bool operator==(CircularInt&a ,int b);
 	friend bool operator==(int a ,CircularInt& b);
 	friend bool operator!=(CircularInt&a , CircularInt& b);
