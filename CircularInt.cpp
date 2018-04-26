@@ -101,19 +101,11 @@ CircularInt& operator-(CircularInt& t, int num) {//minus overloading between cir
 }
 
 CircularInt& operator-(CircularInt&a, CircularInt&b){	//minus overloading between circularInt and circularInt
-	//
-	cout<<"a.current= ";
-	cout<<a.current << endl;
-	cout<<"b.current= ";
-	cout<<b.current<<endl;
 if((a.current-b.current)<a.low){
 	a.current=(a.current-b.current)+a.high;
-	cout<<"shoval" <<endl;
 }
 else{
-	a.current=a.current-b.current;
-	cout<<"naor";
-}
+	a.current=a.current-b.current;}
 return a;
 }
 
@@ -185,9 +177,15 @@ CircularInt& operator+(CircularInt& a, int b) { //+operator between cirInt and i
 	return a;
 }
 
-CircularInt& operator+(int a, CircularInt& b){	//+operator between integer and cirInt
-	b.current=b.current+a;
-	return b;
+int operator+(int a, CircularInt& b){	//+operator between integer and cirInt
+	int answer=0;
+	answer=a+b.current;
+	if(answer>b.high){
+		answer=answer%b.range;
+	}
+	return answer;
+	//b.current=b.current+a;
+	//return b;
 }
 
 CircularInt& operator/(int a, CircularInt& b) { //operator /  between and integer and cirInt
