@@ -84,41 +84,52 @@ string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
 				+ str3 + "=" + str2;
 }
 
-CircularInt& operator+(CircularInt& a, int b){
-	if(a.current+b>12)
-		a.current=(a.current+b)%a.high;
+CircularInt& operator+(CircularInt& a, int b) {
+	if (a.current + b > 12)
+		a.current = (a.current + b) % a.high;
 	else
-		a.current+=b;
+		a.current += b;
 	return a;
 }
 
-CircularInt& operator/(int a, CircularInt& b){
-	b.current=a/b.current;
+CircularInt& operator/(int a, CircularInt& b) {
+	b.current = a / b.current;
 	return b;
 }
 
-CircularInt& operator/=(CircularInt&a , int b){
-a.current=a.current/b;
-return a;
+CircularInt& operator/=(CircularInt&a, int b) {
+	a.current = a.current / b;
+	return a;
 }
 
-bool operator==(CircularInt&a ,int b){
-	if(a.current==b)
+bool operator==(CircularInt&a, int b) {
+	if (a.current == b)
 		return true;
 	else
 		return false;
 
 }
 
-bool operator==(int a ,CircularInt& b){
-	return b==a;
+bool operator==(int a, CircularInt& b) {
+	return b == a;
 }
 
-bool operator!=(CircularInt&a , CircularInt& b){
-	if(a.current!=b.current)
-			return true;
-		else
-			return false;
+bool operator!=(CircularInt&a, CircularInt& b) {
+	if (a.current != b.current)
+		return true;
+	else
+		return false;
 
+}
+
+bool operator!=(CircularInt& a, int b) {
+	if (a.current != b)
+		return true;
+	else
+		return false;
+}
+
+bool operator!=(int a, CircularInt& b) {
+	return b != a;
 }
 
