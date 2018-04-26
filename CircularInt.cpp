@@ -149,6 +149,7 @@ bool operator==(CircularInt& a, CircularInt& b) {		//	== overloading
 }
 
 string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
+	cout << "shoval and naorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr";
 	int b = t.current / num;
 	string str;
 	string str2;
@@ -184,8 +185,6 @@ int operator+(int a, CircularInt& b){	//+operator between integer and cirInt
 		answer=answer%b.range;
 	}
 	return answer;
-	//b.current=b.current+a;
-	//return b;
 }
 
 CircularInt& operator/(int a, CircularInt& b) { //operator /  between and integer and cirInt
