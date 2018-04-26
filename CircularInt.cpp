@@ -173,3 +173,27 @@ bool operator<(int a, CircularInt&b) {	//	< overloading between Integer and cirI
 	else
 		return false;
 }
+
+bool operator>=(CircularInt&a, CircularInt &b){
+	return ((a.current>b.current) && (a==b));
+}
+
+bool operator>=(CircularInt&a, int b){
+	return ((a.current>b) && (a==b));
+}
+
+bool operator>=(int a, CircularInt& b){
+	return ((a>b) && (a==b));
+}
+
+bool operator<=(CircularInt&a, CircularInt &b){
+	return ((a.current<b.current) && (a==b));
+}
+
+bool operator<=(CircularInt&a, int b){
+	return ((a.current<b) && (a==b));
+}
+
+bool operator<=(int a, CircularInt& b){
+	return ((a<b) && (a==b));
+}
