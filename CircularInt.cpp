@@ -7,6 +7,7 @@ CircularInt::CircularInt(int a, int b) {		//Constructor
 	low = a;
 	high = b;
 	current = a;
+	range=(b-a)+1;
 }
 
 ostream& operator <<(ostream& os, const CircularInt& m) {	// cout overloading
@@ -19,12 +20,12 @@ istream& operator >>(istream& os, const CircularInt& m) {	//  overloading
 
 CircularInt& operator+=(CircularInt& t, int a) {		//+= overloading
 	if ((t.current + a) > t.high) {
-		t.current = (t.current + a) % t.high;
+		t.current = (t.current + a) % t.range;
 	} else {
 		t.current = t.current + a;
 	}
 	return t;
-}			//fix
+}
 
 CircularInt& operator+=(CircularInt& a, CircularInt& b) {
 	int temp=b.current;
@@ -49,7 +50,7 @@ CircularInt& operator-=(CircularInt& a, CircularInt& b) {		//-= overloading
 
 CircularInt& operator++(CircularInt& t, int) {		//+1 overloading (++) postfix
 	if ((t.current + 1) > t.high) {
-		t.current = (t.current + 1) % t.high;
+		t.current = (t.current + 1) % t.range;
 		return t;
 	} else
 		return (t += 1);
@@ -61,14 +62,14 @@ CircularInt& operator--(CircularInt& t, int) {		//+1 overloading (--) postfix
 		while(t.current<t.low)
 			t.current+=t.high;
 		if(t.current>t.high)
-			t.current=t.current%t.high;
+			t.current=t.current%t.range;
 		return t;
 	} else
 		return (t -= 1);
 }	// fix
 
 int operator+(CircularInt&a, CircularInt&b) {	//	cout of + overloading
-	return (a.current + b.current) % a.high;
+	return (a.current + b.current) % a.range;
 }
 
 int operator-(CircularInt &t) {		// cout of '-' overloading
@@ -119,13 +120,11 @@ return a;
 
 CircularInt& operator*(CircularInt&a, int b){
 	a*=b;
-	//a.current=a.current%a.high;
 	return a;
 }
 
 CircularInt& operator*(int a, CircularInt& b){
 	b*=a;
-	//b.current=b.current%b.high;
 	return b;
 }
 
@@ -156,7 +155,7 @@ string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
 
 CircularInt& operator+(CircularInt& a, int b) { //+operator between cirInt and integer
 	if (a.current + b > 12)
-		a.current = (a.current + b) % a.high;
+		a.current = (a.current + b) % a.range;
 	else
 		a.current += b;
 	return a;
@@ -177,15 +176,7 @@ CircularInt& operator/=(CircularInt&a, int b) {	//operator /  between cirInt and
 	return a;
 }
 
-CircularInt& operator/=(CircularInt&a, CircularInt&b) {	//operator /  between cirInt and integer *****sho***
-	a.current = a.current / b.current;
-	return a;
-}
 
-CircularInt& operator/=(int b, CircularInt&a) {	//operator /  between integer and cirInt *****sho***
-	a.current = a.current / b;
-	return a;
-}
 
 bool operator==(CircularInt&a, int b) { // operator == between cirInt and integer
 	if (a.current == b)
