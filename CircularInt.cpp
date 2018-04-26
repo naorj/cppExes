@@ -42,12 +42,6 @@ CircularInt& operator-=(CircularInt& t, int a) {		//-= overloading
 }	//fix
 
 CircularInt& operator-=(CircularInt& a, CircularInt& b) {		//-= overloading
-	/*if ((a.current - b.current) < a.low) {
-		a.current = (a.current - b.current) + a.high;
-	} else {
-		a.current = a.current - b.current;
-	}
-	return a;*/
 	int temp=b.current;
 	a-=temp;
 	return a;
@@ -192,8 +186,9 @@ bool operator==(int a, CircularInt& b) {	// operator == between integer and cirI
 	return b == a;
 }
 
-void CircularInt::operator=(int b){	// = overloading
+CircularInt& CircularInt::operator=(int b){	// = overloading
 	this->current=b;
+	return *this;
 }
 
 bool operator!=(CircularInt&a, CircularInt& b) {	//	!= overloading
