@@ -177,6 +177,12 @@ CircularInt& operator/=(CircularInt&a, int b) {	//operator /  between cirInt and
 	return a;
 }
 
+
+CircularInt& operator/=(int b, CircularInt&a) {	//operator /  between integer and cirInt *****sho***
+	a.current = a.current / b;
+	return a;
+}
+
 bool operator==(CircularInt&a, int b) { // operator == between cirInt and integer
 	if (a.current == b)
 		return true;
