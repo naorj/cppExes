@@ -69,7 +69,8 @@ CircularInt& operator--(CircularInt& t, int) {		//+1 overloading (--) postfix
 }	// fix
 
 int operator+(CircularInt&a, CircularInt&b) {	//	cout of + overloading
-	return (a.current + b.current) % a.range;
+	a.current=(a.current+b.current)%a.range;
+	return a.current;
 }
 
 int operator-(CircularInt &t) {		// cout of '-' overloading
