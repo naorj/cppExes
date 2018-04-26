@@ -24,11 +24,17 @@ CircularInt& operator+=(CircularInt& t, int a) {		//+= overloading
 		t.current = t.current + a;
 	}
 	return t;
-}
+}			//fix
 
 CircularInt& operator+=(CircularInt& a, CircularInt& b) {
-	int temp=b.current;
-	a+=temp;
+	//int temp=b.current;
+	//a+=temp;
+	if ((a.current + b.current) > a.high) {
+		a.current = (a.current + b.current) % a.high;
+	} else {
+		a.current = a.current + b.current;
+	}
+	//return t;
 	return a;
 }
 
