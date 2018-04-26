@@ -164,7 +164,7 @@ string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
 }
 
 CircularInt& operator+(CircularInt& a, int b) { //+operator between cirInt and integer
-	if (a.current + b > 12)
+	if (a.current + b > a.high)
 		a.current = (a.current + b) % a.range;
 	else
 		a.current += b;
