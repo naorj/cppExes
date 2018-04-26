@@ -40,13 +40,13 @@ CircularInt& operator-=(CircularInt& t, int a) {		//-= overloading
 		t.current = t.current - a;
 	}
 	return t;
-}	//fix
+}
 
 CircularInt& operator-=(CircularInt& a, CircularInt& b) {		//-= overloading
 	int temp=b.current;
 	a-=temp;
 	return a;
-}	// fix
+}
 
 CircularInt& operator++(CircularInt& t, int) {		//+1 overloading (++) postfix
 	if ((t.current + 1) > t.high) {
@@ -77,12 +77,19 @@ int operator-(CircularInt &t) {		// cout of '-' overloading
 	return t.high - t.current;
 }
 
-CircularInt& operator-(int num, CircularInt& t) {//minus overloading between integer and circularInt
-	t.current = t.high + (num - t.current);
+int operator-(int num, CircularInt& t) {//minus overloading between integer and circularInt
+	/*t.current = t.high + (num - t.current);
 	if (t.current > t.high) {
 		t.current = t.current - t.high;
 	}
-	return t;
+	return t;*/
+	int answer=0;
+	answer=num-t.current;
+	if(answer<t.low){
+		while(answer<t.low)
+			answer=answer+t.range;
+	}
+	return answer;
 }
 
 CircularInt& operator-(CircularInt& t, int num) {//minus overloading between circularInt and integer
@@ -94,11 +101,18 @@ CircularInt& operator-(CircularInt& t, int num) {//minus overloading between cir
 }
 
 CircularInt& operator-(CircularInt&a, CircularInt&b){	//minus overloading between circularInt and circularInt
-if(a.current-b.current<a.low){
+	//
+	cout<<"a.current= ";
+	cout<<a.current << endl;
+	cout<<"b.current= ";
+	cout<<b.current<<endl;
+if((a.current-b.current)<a.low){
 	a.current=(a.current-b.current)+a.high;
+	cout<<"shoval" <<endl;
 }
 else{
 	a.current=a.current-b.current;
+	cout<<"naor";
 }
 return a;
 }
@@ -196,7 +210,6 @@ bool operator==(CircularInt&a, int b) { // operator == between cirInt and intege
 }
 
 bool operator==(int a, CircularInt& b) {	// operator == between integer and cirInt
-	//return b == a; // ma she haya
 	if(b.current==a)
 		return true;
 	else
@@ -208,10 +221,10 @@ CircularInt& CircularInt::operator=(int b){	// = overloading
 	return *this;
 }
 
-CircularInt& CircularInt::operator=(CircularInt& a){	// = overloading
+/*CircularInt& CircularInt::operator=(CircularInt& a){	// = overloading
 	this->current=a.current;
 	return *this;
-}
+}*/
 
 bool operator!=(CircularInt&a, CircularInt& b) {	//	!= overloading
 	if (a.current != b.current)
@@ -228,7 +241,6 @@ bool operator!=(CircularInt& a, int b) { //	!= overloading between cirInt and in
 }
 
 bool operator!=(int a, CircularInt& b) {	//	!= overloading between cirInt and integer
-	//return b != a;	// ma shehaya
 	if(a!=b.current)
 		return true;
 	else
@@ -282,7 +294,6 @@ bool operator>=(CircularInt&a, CircularInt &b){
 	if(a.current<b.current)
 		answer=false;
 	return answer;
-	//return ((a.current>b.current) && (a==b));
 }
 
 bool operator>=(CircularInt&a, int b){
@@ -290,7 +301,6 @@ bool operator>=(CircularInt&a, int b){
 	if(a.current<b)
 		answer=false;
 	return answer;
-	//return ((a.current>b) && (a==b));
 }
 
 bool operator>=(int a, CircularInt& b){
@@ -298,7 +308,6 @@ bool operator>=(int a, CircularInt& b){
 	if(a<b.current)
 		answer=false;
 	return answer;
-	//return ((a>b) && (a==b));
 }
 
 bool operator<=(CircularInt&a, CircularInt &b){
@@ -306,7 +315,6 @@ bool operator<=(CircularInt&a, CircularInt &b){
 	if(a.current>b.current)
 		answer=false;
 	return answer;
-	//return ((a.current<b.current) && (a==b));
 }
 
 bool operator<=(CircularInt&a, int b){
@@ -314,7 +322,6 @@ bool operator<=(CircularInt&a, int b){
 	if(a.current>b)
 		answer=false;
 	return answer;
-	//return ((a.current<b) && (a==b));
 }
 
 bool operator<=(int a, CircularInt& b){
@@ -322,5 +329,4 @@ bool operator<=(int a, CircularInt& b){
 	if(a>b.current)
 		answer=false;
 	return answer;
-	//return ((a<b) && (a==b));
 }

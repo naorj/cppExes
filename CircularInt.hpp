@@ -15,7 +15,7 @@ public:
 	friend CircularInt& operator+=(CircularInt& t, int a);
 	friend CircularInt& operator++(CircularInt& t, int);
 	friend int operator-(CircularInt &t);
-	friend CircularInt& operator-(int num, CircularInt& t);
+	friend int operator-(int num, CircularInt& t);
 	friend int operator+(CircularInt&a, CircularInt&b);
 	friend CircularInt& operator*=(CircularInt &t, int num);
 	friend string operator/(CircularInt& t, int num);
@@ -47,7 +47,7 @@ public:
 	friend CircularInt& operator-=(CircularInt& t, int a);
 	friend CircularInt& operator-=(CircularInt& a, CircularInt& b);
 	CircularInt& operator=(int b);
-	CircularInt& operator=(CircularInt& a);
+	//CircularInt& operator=(CircularInt& a);
 	friend CircularInt& operator*(CircularInt&a, CircularInt&b);
 	friend CircularInt& operator*(CircularInt&a, int b);
 	friend CircularInt& operator*(int a, CircularInt& b);
