@@ -123,6 +123,10 @@ bool operator==(int a, CircularInt& b) {	// operator == between integer and cirI
 	return b == a;
 }
 
+void CircularInt::operator=(int b){	// = overloading
+	this->current=b;
+}
+
 bool operator!=(CircularInt&a, CircularInt& b) {	//	!= overloading
 	if (a.current != b.current)
 		return true;
