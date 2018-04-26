@@ -103,7 +103,11 @@ return a;
 }
 
 CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading
-	t.current = (t.current * num) % t.range;
+	if((t.current*num)>t.high){
+		t.current = (t.current * num) % t.range;
+	}
+	else
+		t.current = (t.current * num);
 	return t;
 }
 
