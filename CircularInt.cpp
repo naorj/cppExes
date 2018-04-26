@@ -13,6 +13,10 @@ ostream& operator <<(ostream& os, const CircularInt& m) {	// cout overloading
 	return os << m.current;
 }
 
+istream& operator <<(istream& os, const int m) {	// cout overloading
+	return os << m;
+}
+
 CircularInt& operator+=(CircularInt& t, int a) {		//+= overloading
 	if ((t.current + a) > t.high) {
 		t.current = (t.current + a) % t.high;
@@ -20,6 +24,12 @@ CircularInt& operator+=(CircularInt& t, int a) {		//+= overloading
 		t.current = t.current + a;
 	}
 	return t;
+}
+
+CircularInt& operator+=(CircularInt& a, CircularInt& b) {
+	int temp=b.current;
+	a+=temp;
+	return a;
 }
 
 CircularInt& operator-=(CircularInt& t, int a) {		//-= overloading
@@ -87,6 +97,12 @@ CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading
 	return t;
 }
 
+CircularInt& operator*=(CircularInt &a, CircularInt&b) {		//	*= overloading
+	int temp=b.current;
+	a*=temp;
+	return a;
+}
+
 CircularInt& operator*(CircularInt&a, CircularInt&b){
 a.current=(a.current*b.current)%a.high;
 return a;
@@ -133,6 +149,11 @@ CircularInt& operator+(CircularInt& a, int b) { //+operator between cirInt and i
 	else
 		a.current += b;
 	return a;
+}
+
+CircularInt& operator+(int a, CircularInt& b){	//+operator between integer and cirInt
+	b.current=b.current+a;
+	return b;
 }
 
 CircularInt& operator/(int a, CircularInt& b) { //operator /  between and integer and cirInt

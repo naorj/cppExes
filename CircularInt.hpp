@@ -10,6 +10,7 @@ class CircularInt {
 public:
 	CircularInt(int a, int b);
 	friend ostream& operator <<(ostream& os, const CircularInt& m);
+	friend istream& operator <<(istream& os, const int m);
 	friend CircularInt& operator+=(CircularInt& t, int a);
 	friend CircularInt& operator++(CircularInt& t, int);
 	friend int operator-(CircularInt &t);
@@ -20,6 +21,7 @@ public:
 	friend bool operator==(CircularInt& a, CircularInt& b);
 	friend CircularInt& operator-(CircularInt& t,int num);
 	friend CircularInt& operator+(CircularInt& a, int b);
+	friend CircularInt& operator+(int a, CircularInt& b);
 	friend CircularInt& operator/(int a, CircularInt& b);
 	friend CircularInt& operator/=(CircularInt&a , int b);
 	friend bool operator==(CircularInt&a ,int b);
@@ -46,4 +48,6 @@ public:
 	friend CircularInt& operator*(CircularInt&a, CircularInt&b);
 	friend CircularInt& operator*(CircularInt&a, int b);
 	friend CircularInt& operator*(int a, CircularInt& b);
+	friend CircularInt& operator+=(CircularInt& a, CircularInt& b);
+	friend CircularInt& operator*=(CircularInt &a, CircularInt&b);
 };
