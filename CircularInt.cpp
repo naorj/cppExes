@@ -208,6 +208,11 @@ CircularInt& CircularInt::operator=(int b){	// = overloading
 	return *this;
 }
 
+CircularInt& CircularInt::operator=(CircularInt& a){	// = overloading
+	this->current=a.current;
+	return *this;
+}
+
 bool operator!=(CircularInt&a, CircularInt& b) {	//	!= overloading
 	if (a.current != b.current)
 		return true;
