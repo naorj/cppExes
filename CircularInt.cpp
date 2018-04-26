@@ -54,6 +54,16 @@ CircularInt& operator-(CircularInt& t, int num) {//minus overloading between cir
 	return t;
 }
 
+CircularInt& operator-(CircularInt&a, CircularInt&b){	//minus overloading between circularInt and circularInt
+if(a.current-b.current<a.low){
+	a.current=(a.current-b.current)+a.high;
+}
+else{
+	a.current=a.current-b.current;
+}
+return a;
+}
+
 CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading
 	t.current = (t.current * num) % t.high;
 	return t;
