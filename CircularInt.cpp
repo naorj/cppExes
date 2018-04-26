@@ -196,7 +196,11 @@ bool operator==(CircularInt&a, int b) { // operator == between cirInt and intege
 }
 
 bool operator==(int a, CircularInt& b) {	// operator == between integer and cirInt
-	return b == a;
+	//return b == a; // ma she haya
+	if(b.current==a)
+		return true;
+	else
+		return false;
 }
 
 CircularInt& CircularInt::operator=(int b){	// = overloading
@@ -209,7 +213,6 @@ bool operator!=(CircularInt&a, CircularInt& b) {	//	!= overloading
 		return true;
 	else
 		return false;
-
 }
 
 bool operator!=(CircularInt& a, int b) { //	!= overloading between cirInt and integer
@@ -220,7 +223,11 @@ bool operator!=(CircularInt& a, int b) { //	!= overloading between cirInt and in
 }
 
 bool operator!=(int a, CircularInt& b) {	//	!= overloading between cirInt and integer
-	return b != a;
+	//return b != a;	// ma shehaya
+	if(a!=b.current)
+		return true;
+	else
+		return false;
 }
 
 bool operator>(CircularInt&a, CircularInt &b) {	//	> overloading between cirInt and cirInt
@@ -266,25 +273,49 @@ bool operator<(int a, CircularInt&b) {	//	< overloading between Integer and cirI
 }
 
 bool operator>=(CircularInt&a, CircularInt &b){
-	return ((a.current>b.current) && (a==b));
+	bool answer=true;
+	if(a.current<b.current)
+		answer=false;
+	return answer;
+	//return ((a.current>b.current) && (a==b));
 }
 
 bool operator>=(CircularInt&a, int b){
-	return ((a.current>b) && (a==b));
+	bool answer=true;
+	if(a.current<b)
+		answer=false;
+	return answer;
+	//return ((a.current>b) && (a==b));
 }
 
 bool operator>=(int a, CircularInt& b){
-	return ((a>b) && (a==b));
+	bool answer=true;
+	if(a<b.current)
+		answer=false;
+	return answer;
+	//return ((a>b) && (a==b));
 }
 
 bool operator<=(CircularInt&a, CircularInt &b){
-	return ((a.current<b.current) && (a==b));
+	bool answer=true;
+	if(a.current>b.current)
+		answer=false;
+	return answer;
+	//return ((a.current<b.current) && (a==b));
 }
 
 bool operator<=(CircularInt&a, int b){
-	return ((a.current<b) && (a==b));
+	bool answer=true;
+	if(a.current>b)
+		answer=false;
+	return answer;
+	//return ((a.current<b) && (a==b));
 }
 
 bool operator<=(int a, CircularInt& b){
-	return ((a<b) && (a==b));
+	bool answer=true;
+	if(a>b.current)
+		answer=false;
+	return answer;
+	//return ((a<b) && (a==b));
 }
