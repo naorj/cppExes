@@ -22,6 +22,24 @@ CircularInt& operator+=(CircularInt& t, int a) {		//+= overloading
 	return t;
 }
 
+CircularInt& operator-=(CircularInt& t, int a) {		//-= overloading
+	if ((t.current - a) < t.low) {
+		t.current = (t.current - a) + t.high;
+	} else {
+		t.current = t.current - a;
+	}
+	return t;
+}
+
+CircularInt& operator-=(CircularInt& a, CircularInt& b) {		//-= overloading
+	if ((a.current - b.current) < a.low) {
+		a.current = (a.current - b.current) + a.high;
+	} else {
+		a.current = a.current - b.current;
+	}
+	return a;
+}
+
 CircularInt& operator++(CircularInt& t, int) {		//+1 overloading (++)
 	if ((t.current + 1) > t.high) {
 		t.current = (t.current + 1) % t.high;
@@ -67,6 +85,21 @@ return a;
 CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading
 	t.current = (t.current * num) % t.high;
 	return t;
+}
+
+CircularInt& operator*(CircularInt&a, CircularInt&b){
+a.current=(a.current*b.current)%a.high;
+return a;
+}
+
+CircularInt& operator*(CircularInt&a, int b){
+	a*=b;
+	return a;
+}
+
+CircularInt& operator*(int a, CircularInt& b){
+	b*=a;
+	return b;
 }
 
 bool operator==(CircularInt& a, CircularInt& b) {		//	== overloading
