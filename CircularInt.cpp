@@ -222,8 +222,11 @@ CircularInt& CircularInt::operator=(int b){	// = overloading
 
 CircularInt& CircularInt::operator=(string b){
 	int temp=atoi(b.c_str());
-	//cout<<temp;
 	this->current=temp;
+	if(this->current<this->low)
+		this->current=this->current+this->range;
+	else if(this->current>this->high)
+		this->current=this->current%this->range;
 	return *this;
 }
 

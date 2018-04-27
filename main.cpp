@@ -4,8 +4,8 @@ using namespace std;
 
 int main() {
 	CircularInt hour (1, 12);                 // <hour is an integer between 1 and 12, like an hour on the clock>
-	cout << hour << endl;                     // 1
-	hour += 4;  cout << hour << endl;         // 5
+	//cout << hour << endl;                     // 1
+	/*hour += 4;  cout << hour << endl;         // 5
 	(hour += 2)++;  cout << hour << endl;     // 8
 	hour += 18;   cout << hour << endl;       // 2   (18 hours after 8)
 	cout << -hour << endl;                   // 10  (2 hours before midnight)
@@ -19,5 +19,8 @@ int main() {
 		cout << hour/3;
 	} catch (const string& message) {
 		cout << message << endl;     // "There is no number x in {1,12} such that x*3=10"
-	}
+	}*/
+	hour+=5;
+	hour=hour/2;
+	cout << "hour" << endl;
 }
