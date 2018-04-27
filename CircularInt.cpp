@@ -111,7 +111,8 @@ else{
 return a;
 }
 
-CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading
+CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading	//114 - 147
+	cout<<"naor1"<<endl;
 	if(t.current*num<t.low){
 		t.current = (t.current * num);
 		while(t.current<t.low)
@@ -126,22 +127,26 @@ CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading
 }
 
 CircularInt& operator*=(CircularInt &a, CircularInt&b) {		//	*= overloading
+	cout<<"naor2"<<endl;
 	int temp=b.current;
 	a*=temp;
 	return a;
 }
 
 CircularInt& operator*(CircularInt&a, CircularInt&b){
+	cout<<"naor3"<<endl;
 a.current=(a.current*b.current) %a.range;
 return a;
 }
 
 CircularInt& operator*(CircularInt&a, int b){
+	cout<<"naor4"<<endl;
 	a*=b;
 	return a;
 }
 
 CircularInt& operator*(int a, CircularInt& b){
+	cout<<"naor5"<<endl;
 	b*=a;
 	return b;
 }
