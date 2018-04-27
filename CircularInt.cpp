@@ -108,7 +108,7 @@ return a;
 }
 
 CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading	//114 - 147
-	cout<<"naor1"<<endl;
+	/*cout<<"naor1"<<endl;
 	if(t.current*num<t.low){
 		t.current = (t.current * num);
 		while(t.current<t.low)
@@ -122,13 +122,20 @@ CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading	//114 - 14
 	}
 	else
 		t.current = (t.current * num);
+	return t;*/
+	int temp=t.current*num;
+	//t.current = calculate_current_value(temp);
+	t.current=((temp - t.low) % (t.high + 1 - t.low) + t.high + 1 - t.low) % (t.high + 1 - t.low) + t.low;
 	return t;
 }
 
 CircularInt& operator*=(CircularInt &a, CircularInt&b) {		//	*= overloading
-	cout<<"naor2"<<endl;
+	/*cout<<"naor2"<<endl;
 	int temp=b.current;
 	a*=temp;
+	return a;*/
+	int temp=a.current*b.current;
+	a.current=((temp - a.low) % (a.high + 1 - a.low) + a.high + 1 - a.low) % (a.high + 1 - a.low) + a.low;
 	return a;
 }
 
