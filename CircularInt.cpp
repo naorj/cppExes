@@ -135,7 +135,11 @@ CircularInt& operator*=(CircularInt &a, CircularInt&b) {		//	*= overloading
 
 int operator*(CircularInt&a, CircularInt&b){
 	cout<<"naor3"<<endl;
-	int answer=(a.current*b.current)%a.range;
+	int answer=0;
+	if((a.current*b.current)%a.range==0)
+		answer=a.high;
+	else
+		answer=(a.current*b.current)%a.range;
 	return answer;
 //a.current=(a.current*b.current) %a.range;
 //return a;
@@ -143,7 +147,11 @@ int operator*(CircularInt&a, CircularInt&b){
 
 int operator*(CircularInt&a, int b){
 	cout<<"naor4"<<endl;
-	int answer=(a.current*b)%a.range;
+	int answer=0;
+	if((a.current*b)%a.range==0)
+		answer=a.high;
+	else
+		answer=(a.current*b)%a.range;
 	return answer;
 	//a*=b;
 	//return a;
@@ -151,7 +159,11 @@ int operator*(CircularInt&a, int b){
 
 int operator*(int a, CircularInt& b){
 	cout<<"naor5"<<endl;
-	int answer=(a*b.current)%b.range;
+	int answer=0;
+	if((a*b.current)%b.range==0)
+		answer=b.high;
+	else
+		answer=(a*b.current)%b.range;
 	return answer;
 	//b*=a;
 	//return b;
