@@ -144,7 +144,8 @@ CircularInt& operator*(CircularInt&a, CircularInt&b){
 //return a;
 	CircularInt* temp = new CircularInt(a.low,a.high);
 		int result = a.current * b.current;
-		temp->current = (result);
+		//temp->current = (result);
+		temp->current=((result - a.low) % (a.high + 1 - a.low) + a.high + 1 - a.low) % (a.high + 1 - a.low) + a.low;
 		return *temp;
 
 }
@@ -163,7 +164,7 @@ CircularInt& operator*(CircularInt&a, int b){
 	return a;*/
 	CircularInt* temp = new CircularInt(a.low,a.high);
 		int result = a.current * b;
-		temp->current = result;
+		temp->current=((result - a.low) % (a.high + 1 - a.low) + a.high + 1 - a.low) % (a.high + 1 - a.low) + a.low;
 		return *temp;
 }
 
