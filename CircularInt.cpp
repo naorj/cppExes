@@ -80,11 +80,6 @@ int operator-(CircularInt &t) {		// cout of '-' overloading
 }
 
 int operator-(int num, CircularInt& t) {//minus overloading between integer and circularInt
-	/*t.current = t.high + (num - t.current);
-	if (t.current > t.high) {
-		t.current = t.current - t.high;
-	}
-	return t;*/
 	int answer=0;
 	answer=num-t.current;
 	if(answer<t.low){
@@ -148,16 +143,28 @@ int operator*(CircularInt&a, CircularInt&b){
 //return a;
 }
 
-int operator*(CircularInt&a, int b){
+CircularInt& operator*(CircularInt&a, int b){
 	//cout<<"naor4"<<endl;
-	int answer=0;
-	if((a.current*b)%a.range==0)
+	if(a.current*b>a.high)
+		a.current = (a.current * b) % a.range;
+	else
+			a.current *= b;
+	return a;
+	/*int answer=0;
+	if(((a.current*b)%a.range)==0)
 		answer=a.high;
 	else
 		answer=(a.current*b)%a.range;
 	return answer;
 	//a*=b;
 	//return a;
+	/*
+	 * if (a.current + b > a.high)
+		a.current = (a.current + b) % a.range;
+	else
+		a.current += b;
+	return a;
+	 */
 }
 
 int operator*(int a, CircularInt& b){
@@ -194,9 +201,9 @@ string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
 	if ((t.current / num > t.low) && (t.current / num < t.high)) {
 		return str;
 	}
-	else if((t.current / num > t.high)){
+	/*else if((t.current / num > t.high)){
 		t.current=(t.current/num)%t.range;
-	}
+	}*/
 
 	else
 		return "there is no number " + str + " in {1,12} such that " + str + "*"
