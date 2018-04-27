@@ -193,7 +193,12 @@ string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
 	str3 = temp2.str();
 	if ((t.current / num > t.low) && (t.current / num < t.high)) {
 		return str;
-	} else
+	}
+	else if((t.current / num > t.high)){
+		t.current=(t.current/num)%t.range;
+	}
+
+	else
 		return "there is no number " + str + " in {1,12} such that " + str + "*"
 				+ str3 + "=" + str2;
 }
