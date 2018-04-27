@@ -132,20 +132,26 @@ CircularInt& operator*=(CircularInt &a, CircularInt&b) {		//	*= overloading
 	return a;
 }
 
-int operator*(CircularInt&a, CircularInt&b){
+CircularInt& operator*(CircularInt&a, CircularInt&b){
 	//cout<<"naor3"<<endl;
-	int answer=0;
+	/*int answer=0;
 	if((a.current*b.current)%a.range==0)
 		answer=a.high;
 	else
 		answer=(a.current*b.current)%a.range;
-	return answer;
+	return answer;*/
 //a.current=(a.current*b.current) %a.range;
 //return a;
+	CircularInt* temp = new CircularInt(a.low,a.high);
+		int result = a.current * b.current;
+		temp->current = (result);
+		return *temp;
+
 }
 
 CircularInt& operator*(CircularInt&a, int b){
 	//cout<<"naor4"<<endl;
+	/*
 	if(a.current*b>a.high){
 		if(((a.current * b) % a.range)==0)
 			a.current=a.high;
@@ -154,7 +160,11 @@ CircularInt& operator*(CircularInt&a, int b){
 	}
 	else
 		a.current *= b;
-	return a;
+	return a;*/
+	CircularInt* temp = new CircularInt(a.low,a.high);
+		int result = a.current * b;
+		temp->current = result;
+		return *temp;
 }
 
 int operator*(int a, CircularInt& b){
