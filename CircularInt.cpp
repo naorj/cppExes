@@ -155,21 +155,6 @@ CircularInt& operator*(CircularInt&a, int b){
 	else
 		a.current *= b;
 	return a;
-	/*int answer=0;
-	if(((a.current*b)%a.range)==0)
-		answer=a.high;
-	else
-		answer=(a.current*b)%a.range;
-	return answer;
-	//a*=b;
-	//return a;
-	/*
-	 * if (a.current + b > a.high)
-		a.current = (a.current + b) % a.range;
-	else
-		a.current += b;
-	return a;
-	 */
 }
 
 int operator*(int a, CircularInt& b){
