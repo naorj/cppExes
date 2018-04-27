@@ -151,7 +151,7 @@ bool operator==(CircularInt& a, CircularInt& b) {		//	== overloading
 }
 
 string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
-	cout << "shoval and naorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr";
+	//cout << "shoval and naorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr";
 	int b = t.current / num;
 	string str;
 	string str2;
@@ -165,7 +165,7 @@ string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
 	str = temp.str();
 	str2 = temp1.str();
 	str3 = temp2.str();
-	if ((t.current / num > 0) && (t.current / num < 13)) {
+	if ((t.current / num > t.low) && (t.current / num < t.high)) {
 		return str;
 	} else
 		return "there is no number " + str + " in {1,12} such that " + str + "*"
@@ -222,6 +222,7 @@ CircularInt& CircularInt::operator=(int b){	// = overloading
 
 CircularInt& CircularInt::operator=(string b){
 	int temp=atoi(b.c_str());
+	//cout<<temp;
 	this->current=temp;
 	return *this;
 }
