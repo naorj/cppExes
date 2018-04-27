@@ -1,5 +1,7 @@
 #include <iostream>
 #include <sstream>
+#include <string>
+#include <stdlib.h>
 #include "CircularInt.hpp"
 using namespace std;
 
@@ -215,6 +217,12 @@ bool operator==(int a, CircularInt& b) {	// operator == between integer and cirI
 
 CircularInt& CircularInt::operator=(int b){	// = overloading
 	this->current=b;
+	return *this;
+}
+
+CircularInt& CircularInt::operator=(string b){
+	int temp=atoi(b.c_str());
+	this->current=temp;
 	return *this;
 }
 
