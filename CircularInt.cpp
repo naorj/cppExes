@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <algorithm>
 #include <stdlib.h>
 #include "CircularInt.hpp"
 using namespace std;
@@ -187,9 +188,9 @@ bool operator==(CircularInt& a, CircularInt& b) {		//	== overloading
 	return a.current == b.current;
 }
 
-string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
+CircularInt& operator/(CircularInt& t, int num) {	// divide overloading with try+catch
 	//cout << "shoval and naorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr";
-	int b = t.current / num;
+	/*int b = t.current / num;
 	string str;
 	string str2;
 	string str3;
@@ -204,14 +205,20 @@ string operator/(CircularInt& t, int num) {	// divide overloading with try+catch
 	str3 = temp2.str();
 	if ((t.current / num > t.low) && (t.current / num < t.high)) {
 		return str;
-	}
+	}*/
 	/*else if((t.current / num > t.high)){
 		t.current=(t.current/num)%t.range;
 	}*/
-
+/*
 	else
 		return "there is no number " + str + " in {1,12} such that " + str + "*"
-				+ str3 + "=" + str2;
+				+ str3 + "=" + str2;*/
+	CircularInt* temp = new CircularInt(t.low,t.high);
+	if(t.current%num!=0)
+		throw string(string("There is no number x in { "));// + to_string(t.low) + string(",") + to_string(t.high) + " } such that x * " + to_string(t.current) + " = " + to_string(t.high));
+	int result = t.current / num;
+		temp->current = result;
+		return *temp;
 }
 
 CircularInt& operator+(CircularInt& a, int b) { //+operator between cirInt and integer
