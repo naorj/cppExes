@@ -145,10 +145,14 @@ int operator*(CircularInt&a, CircularInt&b){
 
 CircularInt& operator*(CircularInt&a, int b){
 	//cout<<"naor4"<<endl;
-	if(a.current*b>a.high)
-		a.current = (a.current * b) % a.range;
+	if(a.current*b>a.high){
+		if(((a.current * b) % a.range)==0)
+			a.current=a.high;
+		else
+			a.current = (a.current * b) % a.range;
+	}
 	else
-			a.current *= b;
+		a.current *= b;
 	return a;
 	/*int answer=0;
 	if(((a.current*b)%a.range)==0)
