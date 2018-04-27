@@ -107,22 +107,7 @@ else{
 return a;
 }
 
-CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading	//114 - 147
-	/*cout<<"naor1"<<endl;
-	if(t.current*num<t.low){
-		t.current = (t.current * num);
-		while(t.current<t.low)
-			t.current = (t.current + t.range);
-	}
-	else if((t.current*num)>t.high){
-		if(((t.current * num) % t.range)==0)
-			t.current=t.high;
-		else
-			t.current = (t.current * num) % t.range;
-	}
-	else
-		t.current = (t.current * num);
-	return t;*/
+CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading
 	int temp=t.current*num;
 	//t.current = calculate_current_value(temp);
 	t.current=((temp - t.low) % (t.high + 1 - t.low) + t.high + 1 - t.low) % (t.high + 1 - t.low) + t.low;
@@ -130,45 +115,19 @@ CircularInt& operator*=(CircularInt &t, int num) {		//	*= overloading	//114 - 14
 }
 
 CircularInt& operator*=(CircularInt &a, CircularInt&b) {		//	*= overloading
-	/*cout<<"naor2"<<endl;
-	int temp=b.current;
-	a*=temp;
-	return a;*/
 	int temp=a.current*b.current;
 	a.current=((temp - a.low) % (a.high + 1 - a.low) + a.high + 1 - a.low) % (a.high + 1 - a.low) + a.low;
 	return a;
 }
 
 CircularInt& operator*(CircularInt&a, CircularInt&b){
-	//cout<<"naor3"<<endl;
-	/*int answer=0;
-	if((a.current*b.current)%a.range==0)
-		answer=a.high;
-	else
-		answer=(a.current*b.current)%a.range;
-	return answer;*/
-//a.current=(a.current*b.current) %a.range;
-//return a;
 	CircularInt* temp = new CircularInt(a.low,a.high);
 		int result = a.current * b.current;
-		//temp->current = (result);
 		temp->current=((result - a.low) % (a.high + 1 - a.low) + a.high + 1 - a.low) % (a.high + 1 - a.low) + a.low;
 		return *temp;
-
 }
 
 CircularInt& operator*(CircularInt&a, int b){
-	//cout<<"naor4"<<endl;
-	/*
-	if(a.current*b>a.high){
-		if(((a.current * b) % a.range)==0)
-			a.current=a.high;
-		else
-			a.current = (a.current * b) % a.range;
-	}
-	else
-		a.current *= b;
-	return a;*/
 	CircularInt* temp = new CircularInt(a.low,a.high);
 		int result = a.current * b;
 		temp->current=((result - a.low) % (a.high + 1 - a.low) + a.high + 1 - a.low) % (a.high + 1 - a.low) + a.low;
@@ -176,15 +135,12 @@ CircularInt& operator*(CircularInt&a, int b){
 }
 
 int operator*(int a, CircularInt& b){
-	cout<<"naor5"<<endl;
 	int answer=0;
 	if((a*b.current)%b.range==0)
 		answer=b.high;
 	else
 		answer=(a*b.current)%b.range;
 	return answer;
-	//b*=a;
-	//return b;
 }
 
 bool operator==(CircularInt& a, CircularInt& b) {		//	== overloading
@@ -228,8 +184,6 @@ CircularInt& operator/=(CircularInt&a, int b) {	//operator /  between cirInt and
 	int result = a.current / b;
 		a.current = result;
 		return a;
-	//a.current = a.current / b;
-	//return a;
 }
 
 
@@ -249,7 +203,8 @@ bool operator==(int a, CircularInt& b) {	// operator == between integer and cirI
 }
 
 CircularInt& CircularInt::operator=(int b){	// = overloading
-	this->current=b;
+	this->current=((b - this->low) % (this->high + 1 - this->low) + this->high + 1 - this->low) % (this->high + 1 - this->low) + this->low;
+	//this->current=b;
 	return *this;
 }
 
