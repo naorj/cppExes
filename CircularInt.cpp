@@ -151,7 +151,7 @@ bool operator==(CircularInt& a, CircularInt& b) {//	== overloading, returns bool
 CircularInt& operator/(CircularInt& t, int num) {// divide overloading with try+catch
 	CircularInt* temp = new CircularInt(t.low, t.high);
 	if (t.current % num != 0)
-		throw string(string("There is no number x in { "));	// + to_string(t.low) + string(",") + to_string(t.high) + " } such that x * " + to_string(t.current) + " = " + to_string(t.high));
+		throw string(string("There is no suitable number"));
 	int result = t.current / num;
 	temp->current = result;
 	return *temp;
@@ -181,20 +181,20 @@ CircularInt& operator/(int a, CircularInt& b) { //	operator /  between and integ
 
 CircularInt& operator/=(CircularInt&a, int b) {	//	operator /=  between cirInt and integer
 	if (a.current % b != 0)
-		throw string(string("There is no number x in { "));
+		throw string(string("There is no suitable number"));
 	int result = a.current / b;
 	a.current = result;
 	return a;
 }
 
-bool operator==(CircularInt&a, int b) { // operator == between cirInt and integer , returns boolean
+bool operator==(CircularInt&a, int b) { 	// operator == between cirInt and integer , returns boolean
 	if (a.current == b)
 		return true;
 	else
 		return false;
 }
 
-bool operator==(int a, CircularInt& b) {// operator == between integer and cirInt
+bool operator==(int a, CircularInt& b) {	// operator == between integer and cirInt
 	if (b.current == a)
 		return true;
 	else

@@ -3,12 +3,12 @@ class CircularInt;
 
 class CircularInt {
 
-	int low;
-	int high;
-	int current;
-	int range;
+	int low;		// the low number in the Circular integer
+	int high;		// the high number in the Circular integer
+	int current;	// the current hour
+	int range;		// the range - (high-low+1)
 
-public:
+public:					//all declarations
 	CircularInt(int a, int b);
 	friend ostream& operator <<(ostream& os, const CircularInt& m);
 	friend istream& operator >>(istream& os, const CircularInt& m);
